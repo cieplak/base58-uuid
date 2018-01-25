@@ -4,7 +4,7 @@ Base58 codec for UUIDs
 
 ## Usage
 
-```
+```haskell
 $ stack ghci
 *Data.UUID.Base58 Data.UUID.Base58> :t randomBase58 
 randomBase58 :: IO LBS.ByteString
@@ -23,7 +23,7 @@ Just (Just 5b6591c9-56fa-4fa9-9e90-48e901e49823)
 
 ## Development
 
-```
+```bash
 $ stack test
 ```
 
