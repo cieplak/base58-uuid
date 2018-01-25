@@ -82,12 +82,5 @@ uuidToInteger uid = summed where
   reducer x (acc, exp) = (256 ^ exp * x + acc, exp + 1)
 
 integerToUUID :: Integer -> Maybe UUID
-integerToUUID value = fromByteString (LBS.pack encoded) where
-  base     = 256 :: Integer
-  encoded  = expand (value `divMod` base) []
-  lookup n = alphabetBase256 !! (fromIntegral n)
-  expand (dividend, remainder) xs
-    | (dividend >  0) = expand (dividend `divMod` base) result
-    | (dividend == 0 && remainder >  0) = result
-    | (dividend == 0 && remainder == 0) = xs
-    where result = [lookup remainder] ++ xs
+integerToUUID = fromByteString . encodeBase256 
+
