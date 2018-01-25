@@ -1,0 +1,27 @@
+name:          base58-uuid
+version:       1.0.0
+cabal-version: >=1.10
+
+library
+  exposed-modules: Data.UUID.Base58
+  hs-source-dirs:  src
+  ghc-options:     -Wall
+  build-depends: base
+               , bytestring
+               , uuid
+
+test-suite test
+    type:    exitcode-stdio-1.0
+    main-is: Spec.hs
+    hs-source-dirs: test
+    ghc-options:    -Wall
+    build-depends: base
+                 , HUnit
+                 , hspec
+                 , base58-uuid
+                 , bytestring
+                 , uuid
+
+source-repository head
+  type:     git
+  location: git://github.com/cieplak/base58-uuid.git
